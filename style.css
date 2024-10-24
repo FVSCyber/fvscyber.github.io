@@ -8,6 +8,10 @@
     --color5: rgb(219, 127, 255);
     overflow-x: hidden;
 }
+a{
+  text-decoration: underline;
+  color: var(--color1);
+}
 logo{
   z-index: 1000;
     position: fixed;

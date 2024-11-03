@@ -18,7 +18,18 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+.bg{
+    position: fixed;
+    background-image: url("../img/heart.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 300px;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+}
 .hal1{
+    z-index: 1;
     width: 100%;
     height: 100vh;
     background-color: var(--color1);
@@ -32,6 +43,7 @@ body {
     height: auto;
 }
 .main{
+    z-index: 3;
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -107,9 +119,6 @@ body {
     color: var(--color1);
 }
 .hal2{
-    /* background-image: url("../img/heart.gif");
-    background-position: center;
-    background-repeat: no-repeat; */
     background-size: 200px;
     width: 100%;
     height: 300vh;
@@ -141,7 +150,7 @@ body {
 .card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     gap: 10px;
     columns: 300px;
 }
@@ -199,11 +208,14 @@ body {
 @media (max-width: 768px) {
 }
 
-/* @media (max-width: 480px) {
+@media (max-width: 480px) {
     .card .item {
+        width: 100%;
+    }
+    .hal3 .card .item {
         width: 100%;
     }
     .hal2{
         height: 250vh;
     }
-} */
+}

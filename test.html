@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Lego Character Scroll Effect</title>
+  <style>
+    body, html {
+      margin: 0;
+      overflow-x: hidden;
+      height: 200vh; /* Set to allow scroll */
+      background-color: #ffffff;
+    }
+
+    /* Centered canvas */
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Style for outline only on Lego */
+    .outline {
+      outline: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+<div id="canvas-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  // Initialize Three.js scene, camera, and renderer
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true });
+  
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+  // Create a Lego character with a cube for demonstration
+  const legoMaterial = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
+  const legoBody = new THREE.Mesh(new THREE.BoxGeometry(1, 1.5, 0.5), legoMaterial);
+  const legoHead = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.5, 0.5), legoMaterial);
+
+  legoHead.position.set(0, 1.25, 0);
+  scene.add(legoBody);
+  scene.add(legoHead);
+
+  // Position the camera
+  camera.position.z = 5;
+
+  // Scroll-based rotation
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    legoBody.rotation.y = scrollY * 0.01;
+    legoHead.rotation.y = scrollY * 0.01;
+  });
+
+  // Render loop
+  function animate() {
+    requestAnimationFrame(animate);
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  // Responsive handling
+  window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  });
+</script>
+</body>
+</html>

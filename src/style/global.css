@@ -4,9 +4,11 @@
 :root{
     --color1: #000000;
     --color2: #3E065F;
-    --color3: #700B97;
+    --color3: #00ff00;
     --color4: #00ff00;
+    --size: 100px;
     scroll-behavior: smooth;
+    cursor: url("../img/arrowhead\ \(1\).png"), auto;
 }
   /* width */
 ::-webkit-scrollbar {
@@ -61,12 +63,15 @@ body{
 .bg{
     position: fixed;
     /* background-image: url("../img/heart.gif"); */
-    background-position: center;
+    /* background-position: center;
     background-repeat: no-repeat;
-    background-size: 300px;
+    background-size: 300px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100vh;
-    z-index: 0;
+    z-index: -999999;
 }
 .hal1{
     z-index: 1;
@@ -92,7 +97,7 @@ body{
     height: 100vh;
 }
 .img{
-    cursor: pointer;
+    cursor: url("../img/target-scope\ \(1\).png"), pointer;
     /* background-image: url("../img/heart.gif"); */
     background-image: url("../img/Char.jpeg");
     background-position: center;
@@ -134,8 +139,8 @@ body{
 }
 .title h1{
     color: transparent;
-    -webkit-text-stroke: 2px var(--color4);
-    font-size: 60px;
+    -webkit-text-stroke: 2px var(--color3);
+    font-size: 35px;
 }
 
 .title h3{
@@ -146,6 +151,7 @@ body{
 }
 .button button{
     /* margin-top: 20px; */
+    cursor: url("../img/target-scope\ \(1\).png"), pointer;
     margin: 10px;
     border: 1px solid var(--color4);
     padding: 10px;
@@ -241,7 +247,7 @@ body{
 .hal3{
     width: 100%;
     height: 150vh;
-    background-color: black;
+    /* background-color: black; */
     color: var(--color4);
     display: flex;
     justify-content: center;
@@ -259,12 +265,97 @@ u{
     z-index: 1;
     width: 100%;
     height: 100vh;
-    background-color: var(--color1);
+    /* background-color: var(--color1); */
     color: var(--color4);
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.perspective {
+  position: relative;
+  perspective: 800px;
+  perspective-origin: 50% -200px;
+}
+
+.box {  
+  width: var(--size);
+  aspect-ratio: 1;  
+
+  position: relative;
+  transform-style: preserve-3d;
+  
+  transform-origin: 50px bottom -50px;
+  /* transform: rotateY(80deg); */
+  /* animation: rotate 4s linear infinite; */
+}
+
+.face {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  aspect-ratio: 1;
+  color: #00ff00;
+  /* background-color: hsl(
+    ,
+    100%,
+    var(--lightness)
+  ); */
+  border: 1px solid var(--color4);
+  
+  transform-style: preserve-3d;
+}
+
+.face.front {
+  --lightness: 66%;
+}
+
+.face.bottom {
+  --lightness: 74%;
+  top: 100%;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+
+.face.top {
+  --lightness: 74%;
+  bottom: 100%;
+  transform-origin: bottom;
+  transform: rotateX(90deg);
+}
+
+.face.back {
+  --lightness: 78%;
+  bottom: 200%;
+  transform-origin: center 150px -50px;
+  transform: rotateX(180deg);
+}
+
+.face.right {
+  --lightness: 70%;
+  left: 100%;
+  transform-origin: left;
+  transform: rotateY(90deg);
+}
+
+.face.left {
+  --lightness: 70%;
+  right: 100%;
+  transform-origin: right;
+  transform: rotateY(-90deg);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+  
 @media (min-width: 1024px) {
     .hal1 .img{
         position: absolute;
@@ -275,14 +366,17 @@ u{
     .hal2{
         height: 120vh;
     }
-    .hal1 .title h1::before{
+    /* .hal1 .title h1::before{
         content: "MUHAMMAD ATHA ";
-    }
+    } */
     .card .item {
         width: 240px;
     }
     
     /* .card  */
+    .title h1{
+        font-size: 60px;
+    }
 }
 
 

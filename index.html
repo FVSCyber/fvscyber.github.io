@@ -8,36 +8,49 @@
     <link rel="stylesheet" href="./src/style/global.css"/>
 </head>
 <body>
+    
     <div class="container">
-        <div class="bg"></div>
+        <div class="bg">
+            <div class="perspective">
+                <div class="box" id="box">
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                    <div class="face back"></div>
+                    <div class="face front"></div>
+                    <div class="face left"></div>
+                    <div class="face right"></div>
+                </div>
+              </div>
+        </div>
         <div class="hal1">
             <div class="main">
                 <div class="img">
                 </div>
                 <div class="title">
                     <h2>I'm</h2>
-                    <h1>YUDAN</h1>
-                    <h3>root@life~# ./Hardware Engineer</h3>
+                    <h1><a class="typewrite" data-period="2000" data-type='[ "Yudan", "Hardware Engineer", "Software Engineer", "FVSCyber"]'>
+                        <span class="wrap"></span>
+                      </a></h1>
+                    <h3>root@life~# ./humaninfo</h3>
                     <pre>
     CodeName : Muhammad_Atha_Yudan
     OS : HumanLinux - MaleEdition
     GUI Version : Xfce v1.3 beta
     Specification :
         Processor : Br41nDragon 8 gen 3
-        Type : IntrovertV1 - LTS
+        Firmware : IntrovertV1 - LTS
         Ram : 8Gb
         Clock Speed : 8.5ghz
-        Firmware : IDNGeneric.2.0.1.1 - LTS
         Memory Used : ##+++++++ (20%)
                     </pre>
                     <div class="button">
-                        <button>About Me?</button>
-                        <button>My Github</button>
+                        <button onclick="location='#about-me'">About Me?</button>
+                        <button onclick="location='https://github.com/FVSCyber'">My Github</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hal2">
+        <div class="hal2" id="about-me">
             <div class="main">
                 <!-- <div class="img"></div> -->
                 <div class="content">
@@ -113,13 +126,13 @@
                     </div>
                     <br>
                     <div class="button">
-                        <button>Project?</button>
-                        <button>Home</button>
+                        <button onclick="location='#contact'">Project?</button>
+                        <button onclick="location='#'">Home</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hal3">
+        <div class="hal3" id="project">
             <div class="main">
                 <div class="content">
                     <div class="title">
@@ -157,8 +170,8 @@
                     </div>
                     <br>
                     <div class="button">
-                        <button>Contact?</button>
-                        <button>Home</button>
+                        <button onclick="location='#contact'">Contact?</button>
+                        <button onclick="location='#'">Home</button>
                     </div>
                 </div>
             </div>
@@ -175,11 +188,11 @@
                         <br>
                     </div>
                     <div class="card">
-                        <div class="item">
+                        <div class="item" onclick="location='https://api.whatsapp.com/send?phone=089672140030&text=hello+friend'">
                             <h1>Click Here For<br>My WhatsApp</h1>
                             <p>Lets Go Chatting With me <br>and sorry if i can't reply chat</p>
                         </div>
-                        <div class="item">
+                        <div class="item" onclick="location='https://t.me/yudanatha'">
                             <h1>Click Here For<br>My Telegram</h1>
                             <p>Lets Go Chatting With me <br>and sorry if i can't reply chat</p>
                         </div>
@@ -196,5 +209,8 @@
     </div>
     
     <script src="./src/js/index.js"></script>
+    <script>
+    
+    </script>
 </body>
 </html>

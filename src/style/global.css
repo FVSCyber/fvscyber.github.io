@@ -4,8 +4,8 @@
 :root{
     --color1: #000000;
     --color2: #3E065F;
-    --color3: #00ff00;
-    --color4: #00ff00;
+    --color3: #ffffff;
+    --color4: #ffffff;
     --size: 100px;
     scroll-behavior: smooth;
     cursor: url("../img/arrowhead\ \(1\).png"), auto;

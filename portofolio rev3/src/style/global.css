@@ -1,0 +1,245 @@
+:root{
+    --color-red: rgb(255, 127, 127); /*home*/
+    --color-yellow: rgb(253, 255, 127); /*aboutme*/
+    --color-blue: rgb(52, 255, 187); /*project*/
+    --color-purple: rgb(219, 127, 255); /*contact*/
+    --color-bg: rgb(255, 255, 255);
+    --color-bg-line: rgb(218, 218, 218);
+    cursor: none;
+    /* overflow: ; */
+}
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+    font-family: monospace;
+}
+.button{
+    display: block;
+}
+button{
+    cursor: none;
+    border: none;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 15px;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    margin: 15px;
+}
+.btn[data-color-btn="red"]:hover{
+    background-color: var(--color-red);
+    box-shadow: 0 0 5px var(--color-red), 0 0 10px var(--color-red), 0 0 15px var(--color-red);
+}
+.btn[data-color-btn="blue"]:hover{
+    background-color: var(--color-blue);
+    box-shadow: 0 0 5px var(--color-blue), 0 0 10px var(--color-blue), 0 0 15px var(--color-blue);
+}
+.btn[data-color-btn="yellow"]:hover{
+    background-color: var(--color-yellow);
+    box-shadow: 0 0 5px var(--color-yellow), 0 0 10px var(--color-yellow), 0 0 15px var(--color-yellow);
+}
+.btn[data-color-btn="purple"]:hover{
+    background-color: var(--color-purple);
+    box-shadow: 0 0 5px var(--color-purple), 0 0 10px var(--color-purple), 0 0 15px var(--color-purple);
+}
+.btn[data-color-btn="github"]:hover{
+    background-color: rgb(36,41,46);
+    box-shadow: 0 0 5px rgb(36,41,46), 0 0 15px rgb(36,41,46);
+    color: var(--color-bg);
+}
+.bg{
+    z-index: -99999;
+    perspective: 1000;
+    transform: translateZ(-10000px);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-size: 40px 60px;
+    background-image:
+        linear-gradient(to right, var(--color-bg-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-bg-line) 1px, transparent 1px);
+}
+nav{
+    z-index: 99999;
+    background-color: rgb(243, 243, 243);
+    margin: 5%;
+    margin-top: 10px;
+    border-radius: 20px;
+    height: 50px;
+    position: fixed;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+}
+nav h1{
+    font-size: 40px;
+    margin: 10px;
+}
+nav .logo{
+    /* text-align: center; */
+    /* width: fit-content; */
+    border-radius: 10px;
+    font-size: 1.8em;
+    margin: 10px;
+    color: blueviolet;
+    font-weight: 700;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    padding: 10px;
+}
+nav .logo:hover{
+    color: rgb(93, 32, 150);
+    /* background-color: blueviolet; */
+}
+.home{
+    /* position: ; */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: var(--color-bg); */
+    /* background-size: 40px 40px;
+    background-image:  
+        linear-gradient(var(--color-bg-line) 1px, transparent 1px), 
+        linear-gradient(to right, var(--color-bg-line) 1px, var(--color-bg-line) 1px); */
+}
+.main-content{
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* backdrop-filter: blur(3px); */
+    
+}
+.img{
+    width: 150px;
+    height: 150px;
+    background-image: url(../img/Char.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+.img:hover{
+    transform: scale(1.1);
+}
+.home h1{
+    font-size: 2em;
+}
+.home p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.1em;
+}
+.home p u{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: blueviolet;
+}
+a{
+    color: blueviolet;
+}
+.main-content .centered{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h3{
+    /* width: max-content; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    padding: 2px;
+    padding-left: 10px;
+    border-radius: 5px;
+    /* margin: ; */
+    color: var(--color-bg);
+    background-color: blueviolet;
+}
+.about-me{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title::after{
+    content: "";
+    position: relative;
+    display: block;
+    /* width: 100px; */
+    height: 3px;
+    border-radius: 16px;
+    background-color: black;
+}
+.card{
+    font-size: 0.9em;
+    color: blueviolet;
+}
+.card .item{
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid blueviolet;
+}
+.contact-box{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+}
+.ucan{
+    margin-bottom: 10px;
+    display: flex;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    background-color: var(--color-purple);
+}
+form{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+form input{
+    padding: 10px;
+    outline: none;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    border: 1px solid blueviolet;
+}
+form textarea{
+    padding: 10px;
+    height: 200px;
+    outline: none;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid blueviolet;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+}
+form textarea:hover{
+    padding: 13px;
+    transform: scale(1.02);
+}
+form input:hover{
+    padding: 13px;
+    transform: scale(1.02);
+}

@@ -4,213 +4,152 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio.</title>
+    <title>✨ Scratch Project ✨</title>
+    <!-- 👇 css code file 👇 -->
     <link rel="stylesheet" href="./src/style/global.css"/>
 </head>
 <body>
-    
-    <div class="container">
-        <div class="bg">
-            <div class="perspective">
-                <div class="box" id="box">
-                    <div class="face top"></div>
-                    <div class="face bottom"></div>
-                    <div class="face back"></div>
-                    <div class="face front"></div>
-                    <div class="face left"></div>
-                    <div class="face right"></div>
-                </div>
-              </div>
-        </div>
-        <div class="hal1">
-            <div class="main">
-                <div class="img">
-                </div>
-                <div class="title">
-                    <h2>I'm</h2>
-                    <h1><a class="typewrite" data-period="2000" data-type='[ "Yudan", "Hardware Engineer", "Software Engineer", "FVSCyber"]'>
-                        <span class="wrap"></span>
-                      </a></h1>
-                    <h3>root@life~# ./humaninfo</h3>
-                    <pre>
-    CodeName : Muhammad_Atha_Yudan
-    OS : HumanLinux - MaleEdition
-    GUI Version : Xfce v1.3 beta
-    Specification :
-        Processor : Br41nDragon 8 gen 3
-        Firmware : IntrovertV1 - LTS
-        Ram : 8Gb
-        Clock Speed : 8.5ghz
-        Memory Used : ##+++++++ (20%)
-                    </pre>
-                    <div class="button">
-                        <button onclick="location='#about-me'">About Me?</button>
-                        <button onclick="location='https://github.com/FVSCyber'">My Github</button>
-                    </div>
+    <nav>
+        
+        <a class="logo" onclick="page(1)">Yudan.</a>
+        <!-- <div class="nav"> -->
+            <button class="github">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z" fill="currentColor"/>
+                    <path d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z" fill="currentColor"/>
+                    <path d="M3 17.0645C2.44772 17.0645 2 17.5122 2 18.0645C2 18.6167 2.44772 19.0645 3 19.0645H21C21.5523 19.0645 22 18.6167 22 18.0645C22 17.5122 21.5523 17.0645 21 17.0645H3Z" fill="currentColor"/>
+                </svg>
+            </button>
+        <!-- </div> -->
+        <!-- <input type="checkbox" name="darkmode" id="darkmode"> -->
+    </nav>
+    <div class="container" id="container">
+        <!-- <div class="bg"></div> -->
+        <div id="cursor-1 home" class="home container container-cursor-1" >
+            <div class="main-content">
+                <div class="centered"><div class="img"></div></div>
+                <br>
+                <h3>Muhammad Atha Yudan</h3>
+                <h1>I'm <a class="typewrite" data-period="1000" data-type='[ "Developer","Hardware Dev", "Software Dev" ]'>
+                    <span class="wrap"></span>
+                  </a></h1>
+                <p>Experienced Hardware Developer with a passion for creating helpful hardware for user</p>
+                <div class="button">
+                    <button class="btn" data-color-btn="yellow" onclick="location='#aboutme'">About me?</button> |
+                    <button class="btn" data-color-btn="github" onclick="github()">Github?</button>
                 </div>
             </div>
         </div>
-        <div class="hal2" id="about-me">
-            <div class="main">
-                <!-- <div class="img"></div> -->
-                <div class="content">
-                    <div class="title">
-                        <h1>About Me</h1>
-                        <h3>root@life~# ./about-me</h3>
-                        <p>Hello! I'm <u>Muhammad Atha Yudan</u>, a 7th-grade student at <u>SMP Negeri 1 Porong</u> with a <u>passion for technology</u>. At 12 years old, I’ve already <u>developed skills</u> in several <u>programming languages</u>, including Python, JavaScript, C++, PHP, and etc. along with experience in Autodesk Inventor and Autodesk Eagle for <u>CAD and electronics design.</u></p>
-                        <br>
-                        <h3>root@life~# ./about-me --skills</h3>
-                        <br>
+        <div id="cursor-1" class="home container container-cursor-1">
+            <div class="main-content" id="aboutme" >
+                
+                <h1 class="title">About Me</h1>
+                <br>
+                <p>Hello! I'm <u>Muhammad Atha Yudan</u>, a 7th-grade student at <u>SMP Negeri 1 Porong</u> with a <u>passion for technology</u>. At 12 years old, I’ve already <u>developed skills</u> in several <u>programming languages</u>, including Python, JavaScript, C++, PHP, and etc. along with experience in Autodesk Inventor and Autodesk Eagle for <u>CAD and electronics design.</u></p>
+                <br>
+                <h1 class="title">Skills</h1>
+                <br>
+                <div class="card">
+                    <div class="item">
+                        <h1>Autodesk Eagle</h1>
+                        <h4>1 Year Experience</h4>
                     </div>
-                    <div class="card">
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>AutoDesk Eagle</h1>
-                                <p>1 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>Blender 3D</h1>
-                                <p>2 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>Python</h1>
-                                <p>2 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>JavaScript</h1>
-                                <p>1 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>Rust</h1>
-                                <p>1 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>Python TKinter</h1>
-                                <p>2 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>Micro Python</h1>
-                                <p>1 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>Arduino</h1>
-                                <p>4 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>Esp8266 & Esp32</h1>
-                                <p>4 Year Experience</p>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="inti" data-images="">
-                                <h1>PlatformIO</h1>
-                                <p>2 Year Experience</p>
-                            </div>
-                        </div>
+                    <div class="item">
+                        <h1>Html & css</h1>
+                        <h4>2 Year Experience</h4>
                     </div>
-                    <br>
-                    <div class="button">
-                        <button onclick="location='#project'">Project?</button>
-                        <button onclick="location='#'">Home</button>
+                    <div class="item">
+                        <h1>JavaScript</h1>
+                        <h4>1 Year Experience</h4>
                     </div>
+                    <div class="item">
+                        <h1>Python</h1>
+                        <h4>2 Year Experience</h4>
+                    </div>
+                    <div class="item">
+                        <h1>C++</h1>
+                        <h4>2 Year Experience</h4>
+                    </div>
+                    <div class="item">
+                        <h1>Arduino</h1>
+                        <h4>3 Year Experience</h4>
+                    </div>
+                    <div class="item">
+                        <h1>MicroPython</h1>
+                        <h4>3 Year Experience</h4>
+                    </div>
+                    <div class="item">
+                        <h1>Blender 3D</h1>
+                        <h4>1 Year Experience</h4>
+                    </div>
+                </div>
+                <div class="button">
+                    <button class="btn" data-color-btn="red" onclick="location='#home'">Home?</button> |
+                    <button class="btn" data-color-btn="yellow" onclick="location='#project'">Project?</button>
                 </div>
             </div>
         </div>
-        <div class="hal3" id="project">
-            <div class="main">
-                <div class="content">
-                    <div class="title">
-                        <h1>PROJECT?</h1>
-                        <h3>root@life~# ./project</h3>
-                        <p>I have several projects that have been realized</p>
+        
+        <div id="cursor-1" class="home container container-cursor-1">
+            <div class="main-content" id="project">
+                
+                <h1 class="title">Project</h1>
+                <br>
+                <p>Some project from my creativity for help someone</p>
+                <!-- <p>Hello! I'm <u>Muhammad Atha Yudan</u>, a 7th-grade student at <u>SMP Negeri 1 Porong</u> with a <u>passion for technology</u>. At 12 years old, I’ve already <u>developed skills</u> in several <u>programming languages</u>, including Python, JavaScript, C++, PHP, and etc. along with experience in Autodesk Inventor and Autodesk Eagle for <u>CAD and electronics design.</u></p> -->
+                <div class="card">
+                    <div class="item">
+                        <h1>FTG - V1</h1>
+                        <h4>FTG is a hardware timer for a glider plane like f1a and f1b. And using esp32 for transmitter And lgt8f328p for receiver.</h4>
                     </div>
-                    <br>
-                    <div class="card">
-                        <div class="item">
-                            <!-- <img src="./src/img/MASSDEFACE5-11-3-2024.png" alt="" style=" max-height: 180px; max-width: 100%;"> -->
-                            <h1 images="md5">MD5</h1>
-                            <!-- <h3>(MassDeface5)</h3> -->
-                            <p>Defacement tools from Python and use vulnerability WebDav For Mass Attack</p>
-                        </div>
-                        <div class="item">
-                            <!-- <img src="./src/img/heart.gif" alt="" style=" max-height: 180px; max-width: 100%;"> -->
-                            <h1 images="md5">Bin2Esp8266</h1>
-                            <!-- <h3>(Coming Soon)</h3> -->
-                            <!-- <h3>(MassDeface5)</h3> -->
-                            <p>Bin2Esp8266 is a tools for flashing bin file into a esp8266 chip or devboard with some firmware internal</p>
-                        </div>
-                        <div class="item">
-                            <!-- <img src="./src/img/heart.gif" alt="" style=" max-height: 180px; max-width: 100%;"> -->
-                            <h1 images="md5">FTG</h1>
-                            <!-- <h3>(MassDeface5)</h3> -->
-                            <p>FTG is a Timer For Glider plane like F1a, OHLG, and DLG. this Hardware is full feature make the plane more defined on digitals</p>
-                        </div>
-                        <div class="item">
-                            <!-- <img src="./src/img/heart.gif" alt="" style=" max-height: 180px; max-width: 100%;"> -->
-                            <h1 images="md5">SplashForR4x</h1>
-                            <!-- <h3>(MassDeface5)</h3> -->
-                            <p>SplashForR4x is a simple tools for making a custom splash boot screen for redmi 4x(santoni). Make with Batch Script and ffmpeg tools</p>
-                        </div>
+                    <div class="item">
+                        <h1>NekoKeychain</h1>
+                        <h4>NekoKeychain is a Keychain with oled for display animation like gif and using esp32c3 for microcontroller</h4>
                     </div>
-                    <br>
-                    <div class="button">
-                        <button onclick="location='#contact'">Contact?</button>
-                        <button onclick="location='#'">Home</button>
+                    <div class="item">
+                        <h1>MD5 (MassDeface5)</h1>
+                        <h4>MD5 is a tools for Auto Massal Defacing web using webdav vulnerability</h4>
                     </div>
+                    <div class="item">
+                        <h1>SplashImageCreator</h1>
+                        <h4>SplashImageCreator is a tools for making custom splash boot screen on redmi 4x(santoni).</h4>
+                    </div>
+                </div>
+                <div class="button">
+                    <button class="btn" data-color-btn="yellow" onclick="location='#home'">Home?</button> |
+                    <button class="btn" data-color-btn="purple" onclick="location='#contact'">Contact?</button>
                 </div>
             </div>
         </div>
-        <div class="hal4" id="contact">
-            <div class="main">
-                <div class="content">
-                    <div class="title">
-                        <h1>Contact?</h1>
-                        <h3>root@life~# ./contact --show</h3>
-                        <p>Q : Can I Contact with You?
-                            <br>A : Yes, you can with my WhatsApp And Telegram  
-                        </p>
-                        <br>
-                    </div>
-                    <div class="card">
-                        <div class="item" onclick="location='https://api.whatsapp.com/send?phone=089672140030&text=hello+friend'">
-                            <h1>Click Here For<br>My WhatsApp</h1>
-                            <p>Lets Go Chatting With me <br>and sorry if i can't reply chat</p>
-                        </div>
-                        <div class="item" onclick="location='https://t.me/yudanatha'">
-                            <h1>Click Here For<br>My Telegram</h1>
-                            <p>Lets Go Chatting With me <br>and sorry if i can't reply chat</p>
-                        </div>
-                    </div>
+        <div id="cursor-1" class="home container container-cursor-1">
+            <div class="main-content" id="contact">
+                
+                <h1 class="title">Contact Me</h1>
+                <br>
+                <div class="contact-box">
+                    
+                    <form action="">
+                        <input type="text" name="name" id="name" placeholder="A good name of You">
+                        <input type="email" name="email" id="email" placeholder="Email?">
+                        <textarea name="pesan" id="pesan" placeholder="Lets connect with me"></textarea>
+                    </form>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                End of Portofolio Hehe :)
+                <!-- <p>Hello! I'm <u>Muhammad Atha Yudan</u>, a 7th-grade student at <u>SMP Negeri 1 Porong</u> with a <u>passion for technology</u>. At 12 years old, I’ve already <u>developed skills</u> in several <u>programming languages</u>, including Python, JavaScript, C++, PHP, and etc. along with experience in Autodesk Inventor and Autodesk Eagle for <u>CAD and electronics design.</u></p> -->
+                
+                <div class="button">
+                    <button class="btn" data-color-btn="red" onclick="location='#home'"">Home?</button> |
+                    <button class="btn" data-color-btn="purple">Send</button>
+                </div>
             </div>
         </div>
     </div>
-    
+    <div class="curzr-arrow-pointer" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path class="inner" d="M25,30a5.82,5.82,0,0,1-1.09-.17l-.2-.07-7.36-3.48a.72.72,0,0,0-.35-.08.78.78,0,0,0-.33.07L8.24,29.54a.66.66,0,0,1-.2.06,5.17,5.17,0,0,1-1,.15,3.6,3.6,0,0,1-3.29-5L12.68,4.2a3.59,3.59,0,0,1,6.58,0l9,20.74A3.6,3.6,0,0,1,25,30Z" fill="#F2F5F8" />
+            <path class="outer" d="M16,3A2.59,2.59,0,0,1,18.34,4.6l9,20.74A2.59,2.59,0,0,1,25,29a5.42,5.42,0,0,1-.86-.15l-7.37-3.48a1.84,1.84,0,0,0-.77-.17,1.69,1.69,0,0,0-.73.16l-7.4,3.31a5.89,5.89,0,0,1-.79.12,2.59,2.59,0,0,1-2.37-3.62L13.6,4.6A2.58,2.58,0,0,1,16,3m0-2h0A4.58,4.58,0,0,0,11.76,3.8L2.84,24.33A4.58,4.58,0,0,0,7,30.75a6.08,6.08,0,0,0,1.21-.17,1.87,1.87,0,0,0,.4-.13L16,27.18l7.29,3.44a1.64,1.64,0,0,0,.39.14A6.37,6.37,0,0,0,25,31a4.59,4.59,0,0,0,4.21-6.41l-9-20.75A4.62,4.62,0,0,0,16,1Z" fill="#111920" />
+        </svg>
+    </div>
+      
     <script src="./src/js/index.js"></script>
-    <script>
-    
-    </script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
@@ -51,68 +52,135 @@ window.onload = function() {
     // INJECT CSS
     var css = document.createElement("style");
     css.type = "text/css";
-    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid var(--color4)}";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
-    var body = document.body();
-    body.innerHTML += "<div class='cursor'></div>"
+    pages();
 };
-const box = document.getElementById("box");
 
-window.addEventListener("scroll", () => {
-    const rotation = window.scrollY / 9; // Semakin kecil angkanya, semakin lambat rotasi
-    box.style.transform = `rotateY(${rotation}deg) scale(${rotation / 300})`;
-});
-function magnify(imgID, zoom) {
-    var img, glass, w, h, bw;
-    img = document.getElementById(imgID);
-    /*create magnifier glass:*/
-    glass = document.createElement("DIV");
-    glass.setAttribute("class", "img-magnifier-glass");
-    /*insert magnifier glass:*/
-    img.parentElement.insertBefore(glass, img);
-    /*set background properties for the magnifier glass:*/
-    glass.style.backgroundImage = "url('" + img.src + "')";
-    glass.style.backgroundRepeat = "no-repeat";
-    glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
-    bw = 3;
-    w = glass.offsetWidth / 2;
-    h = glass.offsetHeight / 2;
-    /*execute a function when someone moves the magnifier glass over the image:*/
-    glass.addEventListener("mousemove", moveMagnifier);
-    img.addEventListener("mousemove", moveMagnifier);
-    /*and also for touch screens:*/
-    glass.addEventListener("touchmove", moveMagnifier);
-    img.addEventListener("touchmove", moveMagnifier);
-    function moveMagnifier(e) {
-      var pos, x, y;
-      /*prevent any other actions that may occur when moving over the image*/
-      e.preventDefault();
-      /*get the cursor's x and y positions:*/
-      pos = getCursorPos(e);
-      x = pos.x;
-      y = pos.y;
-      /*prevent the magnifier glass from being positioned outside the image:*/
-      if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
-      if (x < w / zoom) {x = w / zoom;}
-      if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
-      if (y < h / zoom) {y = h / zoom;}
-      /*set the position of the magnifier glass:*/
-      glass.style.left = (x - w) + "px";
-      glass.style.top = (y - h) + "px";
-      /*display what the magnifier glass "sees":*/
-      glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+const root = document.querySelector(':root');
+
+function changeCursor(index) {
+    cursor.hidden();
+    switch (cursorList[index]) {
+      case 'arrow-pointer':
+        cursor = new ArrowPointer();
+        break;
+      case 'big-circle':
+        cursor = new BigCircle();
+        break;
     }
-    function getCursorPos(e) {
-      var a, x = 0, y = 0;
-      e = e || window.event;
-      /*get the x and y positions of the image:*/
-      a = img.getBoundingClientRect();
-      /*calculate the cursor's x and y coordinates, relative to the image:*/
-      x = e.pageX - a.left;
-      y = e.pageY - a.top;
-      /*consider any page scrolling:*/
-      x = x - window.pageXOffset;
-      y = y - window.pageYOffset;
-      return {x : x, y : y};
+}
+class ArrowPointer {
+    constructor() {
+        this.root = document.body;
+        this.cursor = document.querySelector(".curzr-arrow-pointer");
+    
+        this.position = {
+            distanceX: 0, 
+            distanceY: 0,
+            distance: 0,
+            pointerX: 0,
+            pointerY: 0,
+        },
+        this.previousPointerX = 0;
+        this.previousPointerY = 0;
+        this.angle = 0;
+        this.previousAngle = 0;
+        this.angleDisplace = 0;
+        this.degrees = 57.296;
+        this.cursorSize = 20;
+    
+        this.cursorStyle = {
+            boxSizing: 'border-box',
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: '2147483647',
+            width: `${ this.cursorSize }px`,
+            height: `${ this.cursorSize }px`,
+            transition: '250ms, transform 100ms',
+            userSelect: 'none',
+            pointerEvents: 'none'
+        }  
+    
+        this.init(this.cursor, this.cursorStyle);
     }
+  
+    init(el, style) {
+      Object.assign(el.style, style);
+      setTimeout(() => {
+        this.cursor.removeAttribute("hidden")
+      }, 500);
+      this.cursor.style.opacity = 1;
+    }
+  
+    move(event) {
+        this.previousPointerX = this.position.pointerX;
+        this.previousPointerY = this.position.pointerY;
+        this.position.pointerX = event.pageX + this.root.getBoundingClientRect().x;
+        this.position.pointerY = event.pageY + this.root.getBoundingClientRect().y;
+        this.position.distanceX = this.previousPointerX - this.position.pointerX;
+        this.position.distanceY = this.previousPointerY - this.position.pointerY;
+        this.distance = Math.sqrt(this.position.distanceY ** 2 + this.position.distanceX ** 2);
+    
+        this.cursor.style.transform = `translate3d(${this.position.pointerX}px, ${this.position.pointerY}px, 0)`;
+    
+        if (this.distance > 1) {
+            this.rotate(this.position);
+        } else {
+            this.cursor.style.transform += ` rotate(${this.angleDisplace}deg)`;
+        }
+    }
+  
+    rotate(position) {
+        let unsortedAngle = Math.atan(Math.abs(position.distanceY) / Math.abs(position.distanceX)) * this.degrees;
+        let modAngle;
+        const style = this.cursor.style;
+        this.previousAngle = this.angle;
+    
+        if (position.distanceX <= 0 && position.distanceY >= 0) {
+            this.angle = 90 - unsortedAngle + 0;
+        } else if (position.distanceX < 0 && position.distanceY < 0) {
+            this.angle = unsortedAngle + 90;
+        } else if (position.distanceX >= 0 && position.distanceY <= 0) {
+            this.angle = 90 - unsortedAngle + 180;
+        } else if (position.distanceX > 0 && position.distanceY > 0) {
+            this.angle = unsortedAngle + 270;
+        }
+    
+        if (isNaN(this.angle)) {
+            this.angle = this.previousAngle;
+        } else {
+            if (this.angle - this.previousAngle <= -270) {
+                this.angleDisplace += 360 + this.angle - this.previousAngle;
+            } else if (this.angle - this.previousAngle >= 270) {
+                this.angleDisplace += this.angle - this.previousAngle - 360;
+            } else {
+                this.angleDisplace += this.angle - this.previousAngle;
+            }
+        }
+        style.left = `${ -this.cursorSize / 2 }px`;
+        style.top = `${ 0 }px`;
+        style.transform += ` rotate(${this.angleDisplace}deg)`;
+    }  
+  
+    hidden() {
+        this.cursor.style.opacity = 0;
+        setTimeout(() => {
+            this.cursor.setAttribute("hidden", "hidden")
+        }, 500);
+    }
+}  
+let cursor = new ArrowPointer()
+document.onmousemove = function (event) {
+  cursor.move(event)
+}
+document.ontouchmove = function (event) {
+  cursor.move(event.touches[0])
+}
+document.onclick = function () {
+  if (typeof cursor.click === 'function') {
+    cursor.click()
   }
+}

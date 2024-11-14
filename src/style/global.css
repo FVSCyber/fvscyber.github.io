@@ -5,7 +5,7 @@
     --color-purple: rgb(219, 127, 255); /*contact*/
     --color-bg: rgb(255, 255, 255);
     --color-bg-line: rgb(218, 218, 218);
-    cursor: none;
+    cursor: auto;
     /* overflow: ; */
     scroll-behavior: smooth;
 }
@@ -102,6 +102,38 @@ nav .logo:hover{
     color: rgb(93, 32, 150);
     /* background-color: blueviolet; */
 }
+.nav-action{
+    /* display: none; */
+    position: fixed;
+    display: flex;
+    z-index: 99999;
+    top: 0;
+    /* right: 0; */
+    /* left: 0; */
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.473);
+    transform: translateX(100%);
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    backdrop-filter: blur(15px);
+}
+.nav-action.active{
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    justify-content: space-between;
+    transform: translateX(0);
+}
+.nav-action ul li{
+    /* width: max-content; */
+    display: flex;
+    flex-direction: column;
+}
+#aboutme{
+    height: 220vh;
+}
+#project{
+    height: 170vh;
+}
 .home{
     /* position: ; */
     width: 100%;
@@ -126,9 +158,16 @@ nav .logo:hover{
     /* height: 100vh; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     /* backdrop-filter: blur(3px); */
     
+}
+#contact .main-content{
+    /* background-color: aqua; */
+    height: 110vh;
+}
+.main-content .button{
+    bottom: 0;
 }
 .img{
     width: 150px;
@@ -280,4 +319,38 @@ form textarea:hover{
 form input:hover{
     padding: 13px;
     transform: scale(1.02);
+}
+.contact-box p{
+    padding: 10px;
+    outline: none;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+    border: 1px solid blueviolet;
+}
+.curzr-arrow-pointer{
+    display: block;
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 480px) {
+    :root{
+        cursor: none;
+    }
+    .curzr-arrow-pointer{
+        display: none;
+    }
+    .card .item {
+        width: 100%;
+    }
+    .hal3 .card .item {
+        width: 100%;
+    }
+    .hal2{
+        height: 250vh;
+    }
+    .img{
+        -webkit-filter: brightness(104%) contrast(120%);
+    filter: brightness(108%) contrast(120%);
+    }
 }

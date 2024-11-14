@@ -1,4 +1,70 @@
+var homes = document.getElementById("home")
+var aboutmes = document.getElementById("aboutme")
+var projects = document.getElementById("project")
+var contacts = document.getElementById("contact")
+var page_state = 1
+var x = document.getElementById("navbars");
+function sendMessage() {
+    // e.preventDefault(); 
+    
+    var fname = document.querySelector('input[name="name"]').value;
+    var email = document.querySelector('input[name="email"]').value;
+    var pesan = document.querySelector('textarea[name="pesan"]').value;
+    
+    var message = "<html><br>| Fullname: ${fname} <br> | Email: ${email} <br> | pesan: ${pesan} <br></html>";
+    
+    var token = "7826784007:AAE_yQtFPJWbp_U2e4DvAB1Ux56G7FWF2oI";
+    var chat_id = "6043023960";
+    var url = 'https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${message}';
+    
+    var oReq = new XMLHttpRequest();
+    oReq.open("GET", url, true);
+    oReq.send();
+    oReq.onload = function() {
+        if (oReq.status === 200) {
+            alert("Message sent");
+        } else {
+            console.error("Failed to send message", oReq.responseText);
+        }
+    };
+    alert("Message sent");
+} 
 
+function navb() {
+    if (x.className === "nav-action") {
+      x.className += " active"
+    } else {
+      x.className = "nav-action"
+    }
+}
+function home() {
+    x.className = "nav-action"
+    homes.style.display = ""
+    aboutmes.style.display = "none"
+    projects.style.display = "none"
+    contacts.style.display = "none"
+}
+function aboutme() {
+    x.className = "nav-action"
+    homes.style.display = "none"
+    aboutmes.style.display = ""
+    projects.style.display = "none"
+    contacts.style.display = "none"
+}
+function project()  {
+    x.className = "nav-action"
+    homes.style.display = "none"
+    aboutmes.style.display = "none"
+    projects.style.display = ""
+    contacts.style.display = "none"
+}
+function contact()  {
+    x.className = "nav-action"
+    homes.style.display = "none"
+    aboutmes.style.display = "none"
+    projects.style.display = "none"
+    contacts.style.display = ""
+}
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
     this.el = el;
@@ -54,7 +120,7 @@ window.onload = function() {
     css.type = "text/css";
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
-    pages();
+    home();
 };
 
 const root = document.querySelector(':root');

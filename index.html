@@ -11,9 +11,9 @@
 <body>
     <nav>
         
-        <a class="logo" onclick="page(1)">Yudan.</a>
+        <a class="logo" onclick="home()">Yudan.</a>
         <!-- <div class="nav"> -->
-            <button class="github">
+            <button class="github" onclick="navb()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none">
                     <path d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z" fill="currentColor"/>
                     <path d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z" fill="currentColor"/>
@@ -23,9 +23,26 @@
         <!-- </div> -->
         <!-- <input type="checkbox" name="darkmode" id="darkmode"> -->
     </nav>
+    <div class="nav-action" id="navbars">
+        <ul>
+            <li>
+                <button onclick="home()">Home</button>
+            </li>
+            <li>
+                <button onclick="aboutme()">About me</button>
+            </li>
+            <li>
+                <button onclick="project()">Project</button>
+            </li>
+            <li>
+                <button onclick="contact()">Contact</button>
+            </li>
+        </ul>
+        <button onclick="navb()">Back</button>
+    </div>
     <div class="container" id="container">
         <!-- <div class="bg"></div> -->
-        <div id="cursor-1 home" class="home container container-cursor-1" >
+        <div id="home" class="home container container-cursor-1" >
             <div class="main-content">
                 <div class="centered"><div class="img"></div></div>
                 <br>
@@ -35,13 +52,13 @@
                   </a></h1>
                 <p>Experienced Hardware Developer with a passion for creating helpful hardware for user</p>
                 <div class="button">
-                    <button class="btn" data-color-btn="yellow" onclick="location='#aboutme'">About me?</button> |
+                    <button class="btn" data-color-btn="yellow" onclick="aboutme()">About me?</button> |
                     <button class="btn" data-color-btn="github" onclick="github()">Github?</button>
                 </div>
             </div>
         </div>
-        <div id="cursor-1" class="home container container-cursor-1">
-            <div class="main-content" id="aboutme" >
+        <div id="aboutme" class="home container container-cursor-1">
+            <div class="main-content">
                 
                 <h1 class="title">About Me</h1>
                 <br>
@@ -84,18 +101,18 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button class="btn" data-color-btn="red" onclick="location='#home'">Home?</button> |
-                    <button class="btn" data-color-btn="yellow" onclick="location='#project'">Project?</button>
+                    <button class="btn" data-color-btn="red" onclick="home()">Home?</button> |
+                    <button class="btn" data-color-btn="blue" onclick="project()">Project?</button>
                 </div>
             </div>
         </div>
         
-        <div id="cursor-1" class="home container container-cursor-1">
-            <div class="main-content" id="project">
+        <div id="project" class="home container container-cursor-1">
+            <div class="main-content">
                 
                 <h1 class="title">Project</h1>
                 <br>
-                <p>Some project from my creativity for help someone</p>
+                <p>Some project from my creativity for training my skills</p>
                 <!-- <p>Hello! I'm <u>Muhammad Atha Yudan</u>, a 7th-grade student at <u>SMP Negeri 1 Porong</u> with a <u>passion for technology</u>. At 12 years old, I’ve already <u>developed skills</u> in several <u>programming languages</u>, including Python, JavaScript, C++, PHP, and etc. along with experience in Autodesk Inventor and Autodesk Eagle for <u>CAD and electronics design.</u></p> -->
                 <div class="card">
                     <div class="item">
@@ -107,38 +124,44 @@
                         <h4>NekoKeychain is a Keychain with oled for display animation like gif and using esp32c3 for microcontroller</h4>
                     </div>
                     <div class="item">
-                        <h1>MD5 (MassDeface5)</h1>
+                        <h1>MD5</h1>
                         <h4>MD5 is a tools for Auto Massal Defacing web using webdav vulnerability</h4>
                     </div>
                     <div class="item">
-                        <h1>SplashImageCreator</h1>
-                        <h4>SplashImageCreator is a tools for making custom splash boot screen on redmi 4x(santoni).</h4>
+                        <h1>SplashR4x</h1>
+                        <h4>SplashR4x is a tools for making custom splash boot screen on redmi 4x(santoni).</h4>
                     </div>
                 </div>
                 <div class="button">
-                    <button class="btn" data-color-btn="yellow" onclick="location='#home'">Home?</button> |
-                    <button class="btn" data-color-btn="purple" onclick="location='#contact'">Contact?</button>
+                    <button class="btn" data-color-btn="yellow" onclick="aboutme()">About me?</button> |
+                    <button class="btn" data-color-btn="purple" onclick="contact()">Contact?</button>
                 </div>
             </div>
         </div>
-        <div id="cursor-1" class="home container container-cursor-1">
-            <div class="main-content" id="contact">
-                
-                <h1 class="title">Contact Me</h1>
-                <br>
-                <div class="contact-box">
-                    
-                    <form action="">
-                        <input type="text" name="name" id="name" placeholder="A good name of You">
-                        <input type="email" name="email" id="email" placeholder="Email?">
-                        <textarea name="pesan" id="pesan" placeholder="Lets connect with me"></textarea>
-                    </form>
+        <div id="contact" class="home container container-cursor-1">
+            <div class="main-content">
+                <div>
+                    <h1 class="title">Contact Me</h1>
+                    <!-- <br> -->
+                    <div class="contact-box">
+                        
+                        <form action="">
+                            <input type="text" name="name" id="name" placeholder="A good name of You">
+                            <input type="email" name="email" id="email" placeholder="Email?">
+                            <textarea name="pesan" id="pesan" placeholder="Lets connect with me"></textarea>
+                        </form>
+                        <p>
+                            or you can find me on my social media or my phone number <br>
+                            my phone number is 089672140030 <br>
+                            and my tiktok username is @fvscyb3r <br>
+                        </p>
+                    </div>
                 </div>
                 <!-- <p>Hello! I'm <u>Muhammad Atha Yudan</u>, a 7th-grade student at <u>SMP Negeri 1 Porong</u> with a <u>passion for technology</u>. At 12 years old, I’ve already <u>developed skills</u> in several <u>programming languages</u>, including Python, JavaScript, C++, PHP, and etc. along with experience in Autodesk Inventor and Autodesk Eagle for <u>CAD and electronics design.</u></p> -->
                 
                 <div class="button">
-                    <button class="btn" data-color-btn="red" onclick="location='#home'"">Home?</button> |
-                    <button class="btn" data-color-btn="purple">Send</button>
+                    <button class="btn" data-color-btn="red" onclick="home()">Home?</button> |
+                    <button class="btn" data-color-btn="purple" onclick="sendMessage()">Send</button>
                 </div>
             </div>
         </div>

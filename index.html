@@ -47,19 +47,24 @@
         <button onclick="navb()">Back</button>
     </div>
     <div class="container" id="container">
-        <!-- <div class="bg"></div> -->
+        <div class="transition up" id="transition"></div>
         <div id="home" class="home container container-cursor-1" >
             <div class="main-content">
-                <div class="centered"><div class="img"></div></div>
-                <br>
-                <h3>Muhammad Atha Yudan</h3>
-                <h1>I'm <a class="typewrite" data-period="1000" data-type='[ "Developer","Hardware Dev", "Software Dev" ]'>
-                    <span class="wrap"></span>
-                  </a></h1>
-                <p>Experienced Hardware Developer with a passion for creating helpful hardware for user</p>
-                <div class="button">
-                    <button class="btn" data-color-btn="yellow" onclick="aboutme()">About me?</button> |
-                    <button class="btn" data-color-btn="github" onclick="github()">Github?</button>
+                <div class="foto">
+                    <div class="centered"><div class="img"></div></div>
+                    <br>
+                    
+                </div>
+                <div class="conteks">
+                    <h3>Muhammad Atha Yudan</h3>
+                    <h1>I'm <a class="typewrite" data-period="1000" data-type='[ "Developer","Hardware Dev", "Software Dev" ]'>
+                        <span class="wrap"></span>
+                      </a></h1>
+                    <p>Experienced Hardware Developer with a passion for creating helpful hardware for user</p>
+                    <div class="button">
+                        <button class="btn" data-color-btn="yellow" onclick="aboutme()">About me?</button> |
+                        <button class="btn" data-color-btn="github" onclick="github()">Github?</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,36 +79,64 @@
                 <br>
                 <div class="card">
                     <div class="item">
-                        <h1>Autodesk Eagle</h1>
-                        <h4>1 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>AutoDesk Eagle</h1>
+                            <p>1 Year Experience</p>
+                        </div>
                     </div>
                     <div class="item">
-                        <h1>Html & css</h1>
-                        <h4>2 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>Blender 3D</h1>
+                            <p>2 Year Experience</p>
+                        </div>
                     </div>
                     <div class="item">
-                        <h1>JavaScript</h1>
-                        <h4>1 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>Python</h1>
+                            <p>2 Year Experience</p>
+                        </div>
                     </div>
                     <div class="item">
-                        <h1>Python</h1>
-                        <h4>2 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>JavaScript</h1>
+                            <p>1 Year Experience</p>
+                        </div>
                     </div>
                     <div class="item">
-                        <h1>C++</h1>
-                        <h4>2 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>Rust</h1>
+                            <p>1 Year Experience</p>
+                        </div>
                     </div>
                     <div class="item">
-                        <h1>Arduino</h1>
-                        <h4>3 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>Python TKinter</h1>
+                            <p>2 Year Experience</p>
+                        </div>
                     </div>
                     <div class="item">
-                        <h1>MicroPython</h1>
-                        <h4>3 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>Micro Python</h1>
+                            <p>1 Year Experience</p>
+                        </div>
                     </div>
                     <div class="item">
-                        <h1>Blender 3D</h1>
-                        <h4>1 Year Experience</h4>
+                        <div class="inti" data-images="">
+                            <h1>Arduino</h1>
+                            <p>4 Year Experience</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="inti" data-images="">
+                            <h1>Esp8266 & Esp32</h1>
+                            <p>4 Year Experience</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="inti" data-images="">
+                            <h1>PlatformIO</h1>
+                            <p>2 Year Experience</p>
+                        </div>
                     </div>
                 </div>
                 <div class="button">
@@ -150,25 +183,28 @@
                     <h1 class="title">Contact Me</h1>
                     <!-- <br> -->
                     <div class="contact-box">
-                        
-                        <form action="" id="contact-form">
-                            <input type="text" name="name" id="name" placeholder="A good name of You">
-                            <input type="email" name="email" id="email" placeholder="Email?">
-                            <textarea name="pesan" id="pesan" placeholder="Lets connect with me"></textarea>
-                        </form>
                         <p>
-                            or you can find me on my social media or my phone number <br>
+                            you can find me on my social media or my phone number <br>
                             my phone number is 089672140030 <br>
                             and my tiktok username is @fvscyb3r <br>
                         </p>
+                        
+                        <form id="contact-form" onsubmit="sendMessage(); contact()">
+                            <label for="name">Your Name :</label>
+                            <input type="text" id="name" placeholder="A good name of You" required>
+                            <label for="email">Your Email :</label>
+                            <input type="email" id="email" placeholder="Email?" required>
+                            <label for="pesan">Your Message :</label>
+                            <textarea id="pesan" placeholder="Lets connect with me" required></textarea>
+                            <div class="button">
+                                <input class="btn" data-color-btn="purple" type="submit" value="Submit"> |
+                                <button class="btn" data-color-btn="blue" onclick="project()">Project?</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <!-- <p>Hello! I'm <u>Muhammad Atha Yudan</u>, a 7th-grade student at <u>SMP Negeri 1 Porong</u> with a <u>passion for technology</u>. At 12 years old, I’ve already <u>developed skills</u> in several <u>programming languages</u>, including Python, JavaScript, C++, PHP, and etc. along with experience in Autodesk Inventor and Autodesk Eagle for <u>CAD and electronics design.</u></p> -->
                 
-                <div class="button">
-                    <button class="btn" data-color-btn="red" onclick="home()">Home?</button> |
-                    <button class="btn" data-color-btn="purple" onclick="sendMessage()">Send</button>
-                </div>
             </div>
         </div>
     </div>

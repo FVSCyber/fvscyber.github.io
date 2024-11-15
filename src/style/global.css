@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-bold');
 :root{
     --color-red: rgb(255, 127, 127); /*home*/
     --color-yellow: rgb(253, 255, 127); /*aboutme*/
@@ -5,9 +6,12 @@
     --color-purple: rgb(219, 127, 255); /*contact*/
     --color-bg: rgb(255, 255, 255);
     --color-bg-line: rgb(218, 218, 218);
-    cursor: auto;
+    cursor: none;
     /* overflow: ; */
     scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 *,
 html,
@@ -62,6 +66,10 @@ button{
     height: fit-content;
     
 }
+.nav-text button{
+    padding: 10px;
+    
+}
 nav{
     z-index: 99999;
     background-color: rgb(243, 243, 243);
@@ -97,6 +105,7 @@ nav .logo{
     font-weight: 700;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
     padding: 10px;
+    font-family: 'ICA Rubrik';
 }
 nav .logo:hover{
     color: rgb(93, 32, 150);
@@ -127,6 +136,7 @@ nav .nav-text{
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
     backdrop-filter: blur(15px);
 }
+
 .nav-action.active{
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
     justify-content: space-between;
@@ -138,10 +148,10 @@ nav .nav-text{
     flex-direction: column;
 }
 #aboutme{
-    height: 200vh;
+    height: 150vh;
 }
 #project{
-    height: 120vh;
+    height: 100vh;
 }
 .home{
     /* position: ; */
@@ -175,12 +185,17 @@ nav .nav-text{
     /* background-color: aqua; */
     height: 100vh;
 }
+#home .main-content{
+    display: flex;
+    font-size: 1.2em;
+    flex-direction: row;
+}
 .main-content .button{
     bottom: 0;
 }
 .img{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background-image: url(../img/Char.jpeg);
     background-position: center;
     background-size: cover;
@@ -214,8 +229,8 @@ a{
 }
 h3{
     /* width: max-content; */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 15px;
+    font-family: 'ICA Rubrik';
+    font-size: 20px;
     padding: 2px;
     padding-left: 10px;
     border-radius: 5px;
@@ -245,6 +260,11 @@ h3{
     color: blueviolet;
     /* columns: 150px; */
     /* flex-wrap: wrap; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 15px;
+    columns: 300px;
 }
 .card .item{
     z-index: 2;
@@ -256,6 +276,7 @@ h3{
     margin: 10px;
     border-radius: 15px;
     padding: 15px;
+    width: 230px;
     /* width: max-content; */
     /* border: 1px solid blueviolet; */
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
@@ -284,8 +305,11 @@ h3{
 }
 .contact-box{
     display: flex;
-    flex-direction: column;
-    height: 50vh;
+    width: 100%;
+    height: 70vh;
+    /* flex-direction: row; */
+    /* width: 100%; */
+    /* height: 50vh; */
 }
 .ucan{
     margin-bottom: 10px;
@@ -300,23 +324,32 @@ h3{
     background-color: var(--color-purple);
 }
 form{
-    margin-top: 10px;
+    margin: 10px;
+    width: 50%;
     display: flex;
     flex-direction: column;
+}
+.contact-box p{
+    margin: 10px;
+    width: 50%;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
 }
 form input{
     padding: 10px;
     outline: none;
-    margin-top: 10px;
+    /* margin-bottom: 10px; */
     border-radius: 10px;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
     border: 1px solid blueviolet;
 }
 form textarea{
     padding: 10px;
-    height: 200px;
+    height: 90vh;
     outline: none;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     border-radius: 10px;
     border: 1px solid blueviolet;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
@@ -337,16 +370,65 @@ form input:hover{
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
     border: 1px solid blueviolet;
 }
+label{
+    color: blueviolet;
+    font-family: 'ICA Rubrik';
+    margin: 10px;
+}
 .curzr-arrow-pointer{
     display: block;
 }
+
+
+.transition{
+    z-index: 999999999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-bg-line);
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) .8s;
+}
+.transition.up{
+    transform: translateY(-100%);
+}
+
+
+
 @media (max-width: 768px) {
     nav .nav-text li button{
         font-size: 9px;
         width: 60px;
     }
+    .card{
+        width: 100%;
+    }
+    .card .item {
+        width: 100%;
+    }
+    #project .card .item {
+        width: 100%;
+    }
+    .contact-box{
+        height: 40vh;
+        flex-direction: column;
+    }
+    #home .main-content{
+        flex-direction: column;
+    }
 }
 @media (max-width: 480px) {
+    button{
+    cursor: pointer;
+    }
+    #aboutme{
+        height: 300vh;
+    }
+    #project{
+        height: 150vh;
+    }
     *{
         cursor: auto;
     }
@@ -362,14 +444,25 @@ form input:hover{
     .card .item {
         width: 100%;
     }
-    .hal3 .card .item {
+    #project .card .item {
         width: 100%;
     }
-    .hal2{
-        height: 250vh;
+    #contact{
+        height: 100vh;
+    }
+    .contact-box p{
+        width: 100%;
+        height: 40vh;
+    }
+    form{
+        width: 100%;
+        height: 50vh;
     }
     .img{
-        -webkit-filter: brightness(104%) contrast(120%);
-    filter: brightness(108%) contrast(120%);
+        width: 150px;
+        height: 150px;
+    }
+    h3{
+        font-size: 15px;
     }
 }

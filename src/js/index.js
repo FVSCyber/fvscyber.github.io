@@ -4,7 +4,7 @@ var projects = document.getElementById("project")
 var contacts = document.getElementById("contact")
 var page_state = 1
 var x = document.getElementById("navbars");
-
+var transition = document.getElementById('transition');
 
 var fname = document.getElementById('name').value;
 var email = document.getElementById('email');
@@ -32,7 +32,7 @@ function sendMessage() {
     };
     console.log(url);
 } 
-
+// https://api.telegram.org/bot7826784007:AAE_yQtFPJWbp_U2e4DvAB1Ux56G7FWF2oI/sendMessage?chat_id=6043023960&text=https://github.com/
 function navb() {
     if (x.className === "nav-action") {
       x.className += " active"
@@ -40,33 +40,63 @@ function navb() {
       x.className = "nav-action"
     }
 }
+function sideup(){
+    transition.className = "transition up";
+}
+function side(){
+    // if(transition.className === "transition up"){
+    //     transition.className = "transition down";
+    // }else if(transition.className === "transition down"){
+    //     transition.className = "transition up";
+    // }
+    
+    transition.className = "transition";
+    setTimeout(function(){
+        transition.className = "transition up";
+    },800)
+}
 function home() {
-    x.className = "nav-action"
-    homes.style.display = ""
-    aboutmes.style.display = "none"
-    projects.style.display = "none"
-    contacts.style.display = "none"
+    side()
+    setTimeout(function(){
+        x.className = "nav-action"
+        homes.style.display = ""
+        aboutmes.style.display = "none"
+        projects.style.display = "none"
+        contacts.style.display = "none"
+    }, 500)
+    // sidedown()
 }
 function aboutme() {
     x.className = "nav-action"
-    homes.style.display = "none"
-    aboutmes.style.display = ""
-    projects.style.display = "none"
-    contacts.style.display = "none"
+    side()
+    setTimeout(function(){
+        homes.style.display = "none"
+        aboutmes.style.display = ""
+        projects.style.display = "none"
+        contacts.style.display = "none"
+    }, 500)
 }
 function project()  {
     x.className = "nav-action"
-    homes.style.display = "none"
-    aboutmes.style.display = "none"
-    projects.style.display = ""
-    contacts.style.display = "none"
+    side()
+    setTimeout(function(){
+        homes.style.display = "none"
+        aboutmes.style.display = "none"
+        projects.style.display = ""
+        contacts.style.display = "none"
+
+    }, 500)
 }
 function contact()  {
     x.className = "nav-action"
-    homes.style.display = "none"
-    aboutmes.style.display = "none"
-    projects.style.display = "none"
-    contacts.style.display = ""
+    side()
+    setTimeout(function(){
+        homes.style.display = "none"
+        aboutmes.style.display = "none"
+        projects.style.display = "none"
+        contacts.style.display = ""
+
+    }, 500)
 }
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
@@ -124,6 +154,7 @@ window.onload = function() {
     css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
     document.body.appendChild(css);
     home();
+    // contact()
 };
 
 const root = document.querySelector(':root');

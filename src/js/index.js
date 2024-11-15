@@ -4,18 +4,21 @@ var projects = document.getElementById("project")
 var contacts = document.getElementById("contact")
 var page_state = 1
 var x = document.getElementById("navbars");
+
+
+var fname = document.getElementById('name').value;
+var email = document.getElementById('email');
+var pesan = document.getElementById('pesan');
+
 function sendMessage() {
     // e.preventDefault(); 
-    
-    var fname = document.querySelector('input[name="name"]').value;
-    var email = document.querySelector('input[name="email"]').value;
-    var pesan = document.querySelector('textarea[name="pesan"]').value;
-    
-    var message = "Name : " + fname + "\nEmail : " + email + "\nPesan : \n" + pesan;
-    
-    var token = "7826784007:AAE_yQtFPJWbp_U2e4DvAB1Ux56G7FWF2oI";
-    var chat_id = "6043023960";
-    var url = 'https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${message}';
+    var x = document.getElementById("contact-form");
+    var space = "                                                                                                                 ";
+    var text = "";
+    text += "Nama Pengirim : " + x.elements[0].value + space;
+    text += "Email Pengirim : " + x.elements[1].value + space;
+    text += "Pesan Pengirim : " + space +x.elements[2].value;
+    var url = 'https://api.telegram.org/bot7826784007:AAE_yQtFPJWbp_U2e4DvAB1Ux56G7FWF2oI/sendMessage?chat_id=6043023960&text=' + text;
     
     var oReq = new XMLHttpRequest();
     oReq.open("GET", url, true);
@@ -27,7 +30,7 @@ function sendMessage() {
             console.error("Failed to send message", oReq.responseText);
         }
     };
-    alert("Message sent");
+    console.log(url);
 } 
 
 function navb() {

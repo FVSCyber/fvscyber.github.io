@@ -15,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: none;
+    /* cursor: none; */
     font-family: monospace;
 }
 .button{
@@ -80,7 +80,7 @@ nav button{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
+    width: 70px;
     height: 30px;
 }
 nav h1{
@@ -101,6 +101,15 @@ nav .logo{
 nav .logo:hover{
     color: rgb(93, 32, 150);
     /* background-color: blueviolet; */
+}
+nav .nav-btn{
+    display: none;
+}
+nav .nav-text li button{
+    width: 100px;
+}
+nav .nav-text{
+    display: flex;
 }
 .nav-action{
     /* display: none; */
@@ -129,10 +138,10 @@ nav .logo:hover{
     flex-direction: column;
 }
 #aboutme{
-    height: 220vh;
+    height: 200vh;
 }
 #project{
-    height: 170vh;
+    height: 120vh;
 }
 .home{
     /* position: ; */
@@ -164,7 +173,7 @@ nav .logo:hover{
 }
 #contact .main-content{
     /* background-color: aqua; */
-    height: 110vh;
+    height: 100vh;
 }
 .main-content .button{
     bottom: 0;
@@ -332,10 +341,20 @@ form input:hover{
     display: block;
 }
 @media (max-width: 768px) {
+    nav .nav-text li button{
+        font-size: 9px;
+        width: 60px;
+    }
 }
 @media (max-width: 480px) {
-    :root{
-        cursor: none;
+    *{
+        cursor: auto;
+    }
+    nav .nav-text{
+        display: none;
+    }
+    nav .nav-btn{
+        display: block;
     }
     .curzr-arrow-pointer{
         display: none;

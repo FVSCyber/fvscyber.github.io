@@ -11,7 +11,7 @@ function sendMessage() {
     var email = document.querySelector('input[name="email"]').value;
     var pesan = document.querySelector('textarea[name="pesan"]').value;
     
-    var message = "<html><br>| Fullname: ${fname} <br> | Email: ${email} <br> | pesan: ${pesan} <br></html>";
+    var message = "Name : " + fname + "\nEmail : " + email + "\nPesan : \n" + pesan;
     
     var token = "7826784007:AAE_yQtFPJWbp_U2e4DvAB1Ux56G7FWF2oI";
     var chat_id = "6043023960";
